@@ -81,6 +81,7 @@
 		46E17CC91B0EC32A001AC57A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E17CC11B0EC32A001AC57A /* FMDatabasePool.m */; };
 		46E17CCA1B0EC32A001AC57A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E17CC31B0EC32A001AC57A /* FMDatabaseQueue.m */; };
 		46E17CCC1B0EC32A001AC57A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E17CC61B0EC32A001AC57A /* FMResultSet.m */; };
+		4C76C8852170DEB600701524 /* RCDLoginViewController_New.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76C8842170DEB600701524 /* RCDLoginViewController_New.m */; };
 		510624851AD63A9E00348452 /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = 510624831AD63A9E00348452 /* RongCloudKit.strings */; };
 		5111B07B1AE6A11A00317E71 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5111B0781AE6A11A00317E71 /* RongIMKit.framework */; };
 		5111B07D1AE6A11A00317E71 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5111B07A1AE6A11A00317E71 /* RongCloud.bundle */; };
@@ -493,6 +494,8 @@
 		46E17CC51B0EC32A001AC57A /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = DB/FMResultSet.h; sourceTree = "<group>"; };
 		46E17CC61B0EC32A001AC57A /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = DB/FMResultSet.m; sourceTree = "<group>"; };
 		46E17CCD1B0EDF49001AC57A /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = DB/FMDB.h; sourceTree = "<group>"; };
+		4C76C8832170DEB500701524 /* RCDLoginViewController_New.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDLoginViewController_New.h; path = YunChuang/RCDLoginViewController_New.h; sourceTree = SOURCE_ROOT; };
+		4C76C8842170DEB600701524 /* RCDLoginViewController_New.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDLoginViewController_New.m; path = YunChuang/RCDLoginViewController_New.m; sourceTree = SOURCE_ROOT; };
 		510624841AD63A9E00348452 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = framework/en.lproj/RongCloudKit.strings; sourceTree = SOURCE_ROOT; };
 		510624861AD63AA500348452 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "framework/zh-Hans.lproj/RongCloudKit.strings"; sourceTree = SOURCE_ROOT; };
 		5111B0781AE6A11A00317E71 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMKit.framework; path = framework/RongIMKit.framework; sourceTree = SOURCE_ROOT; };
@@ -1783,6 +1786,8 @@
 			children = (
 				E4BFAE601A1219D8007165B1 /* RCDLoginViewController.h */,
 				E4BFAE611A1219D8007165B1 /* RCDLoginViewController.m */,
+				4C76C8832170DEB500701524 /* RCDLoginViewController_New.h */,
+				4C76C8842170DEB600701524 /* RCDLoginViewController_New.m */,
 				27D6FF9A1DFE4D2100053F69 /* RCDSettingServerUrlViewController.h */,
 				27D6FF9B1DFE4D2100053F69 /* RCDSettingServerUrlViewController.m */,
 				27D6FF9D1DFE4D2C00053F69 /* RCDSettingUserDefaults.h */,
@@ -2724,6 +2729,7 @@
 				46E17CCC1B0EC32A001AC57A /* FMResultSet.m in Sources */,
 				A61647881BE9BF7C00E90813 /* RCDMeInfoTableViewController.m in Sources */,
 				466684271B5DEA5B000B7504 /* RCDConversationSettingBaseViewController.m in Sources */,
+				4C76C8852170DEB600701524 /* RCDLoginViewController_New.m in Sources */,
 				9B447DE81CF82926005D3ED5 /* RCDContactSelectedTableViewController.m in Sources */,
 				174151F51CBE516A00A4B23B /* RCDPublicServiceListViewController.m in Sources */,
 				A6447A3F1B1DC12500EA2CEE /* RCWKSharedUserDefault.m in Sources */,

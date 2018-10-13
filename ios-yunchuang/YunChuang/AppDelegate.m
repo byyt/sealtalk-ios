@@ -13,6 +13,7 @@
 #import "RCDCommonDefine.h"
 #import "RCDHttpTool.h"
 #import "RCDLoginViewController.h"
+#import "RCDLoginViewController_New.h"
 #import "RCDMainTabBarViewController.h"
 #import "RCDNavigationViewController.h"
 #import "RCDRCIMDataSource.h"
@@ -30,7 +31,7 @@
 #import <RongContactCard/RongContactCard.h>
 #import <RongIMKit/RongIMKit.h>
 
-#define RONGCLOUD_IM_APPKEY @"n19jmcy59f1q9" // online key
+#define RONGCLOUD_IM_APPKEY @"4z3hlwrv4o02t" // online key
 
 //#define RONGCLOUD_IM_APPKEY @"c9kqb3rdkbb8j" // pre key
 //#define RONGCLOUD_IM_APPKEY @"e0x9wycfx7flq" // offline key
@@ -98,7 +99,7 @@
             NSString *fileUrlver = [RCDSettingUserDefaults getRCFileServer];
             //设置导航server和文件server地址
             [[RCIMClient sharedRCIMClient] setServerInfo:navServer fileServer:fileUrlver];
-            RCDLoginViewController *settingVC = [[RCDLoginViewController alloc] init];
+            RCDLoginViewController_New *settingVC = [[RCDLoginViewController_New alloc] init];
             RCDNavigationViewController *_navi =
                 [[RCDNavigationViewController alloc] initWithRootViewController:settingVC];
             self.window.rootViewController = _navi;
@@ -266,7 +267,7 @@
             }];
 
     } else {
-        RCDLoginViewController *vc = [[RCDLoginViewController alloc] init];
+        RCDLoginViewController_New *vc = [[RCDLoginViewController_New alloc] init];
         RCDNavigationViewController *_navi = [[RCDNavigationViewController alloc] initWithRootViewController:vc];
 
         self.window.rootViewController = _navi;
@@ -534,21 +535,21 @@
 
 - (void)redirectNSlogToDocumentFolder {
     NSLog(@"Log重定向到本地，如果您需要控制台Log，注释掉重定向逻辑即可。");
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [paths objectAtIndex:0];
-
-    [self removeExpireLogFiles:documentDirectory];
-
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"MMddHHmmss"];
-    NSString *formattedDate = [dateformatter stringFromDate:currentDate];
-
-    NSString *fileName = [NSString stringWithFormat:@"rc%@.log", formattedDate];
-    NSString *logFilePath = [documentDirectory stringByAppendingPathComponent:fileName];
-
-    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
-    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentDirectory = [paths objectAtIndex:0];
+//
+//    [self removeExpireLogFiles:documentDirectory];
+//
+//    NSDate *currentDate = [NSDate date];
+//    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+//    [dateformatter setDateFormat:@"MMddHHmmss"];
+//    NSString *formattedDate = [dateformatter stringFromDate:currentDate];
+//
+//    NSString *fileName = [NSString stringWithFormat:@"rc%@.log", formattedDate];
+//    NSString *logFilePath = [documentDirectory stringByAppendingPathComponent:fileName];
+//
+//    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
+//    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
@@ -634,7 +635,7 @@
                                               cancelButtonTitle:@"知道了"
                                               otherButtonTitles:nil, nil];
         [alert show];
-        RCDLoginViewController *loginVC = [[RCDLoginViewController alloc] init];
+        RCDLoginViewController_New *loginVC = [[RCDLoginViewController_New alloc] init];
         RCDNavigationViewController *_navi = [[RCDNavigationViewController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController = _navi;
     } else if (status == ConnectionStatus_TOKEN_INCORRECT) {
@@ -662,7 +663,7 @@
                                               cancelButtonTitle:@"知道了"
                                               otherButtonTitles:nil, nil];
         [alert show];
-        RCDLoginViewController *loginVC = [[RCDLoginViewController alloc] init];
+        RCDLoginViewController_New *loginVC = [[RCDLoginViewController_New alloc] init];
         RCDNavigationViewController *_navi = [[RCDNavigationViewController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController = _navi;
     }
@@ -846,7 +847,7 @@
                                                   otherButtonTitles:nil, nil];
         ;
         [alertView show];
-        RCDLoginViewController *loginVC = [[RCDLoginViewController alloc] init];
+        RCDLoginViewController_New *loginVC = [[RCDLoginViewController_New alloc] init];
         RCDNavigationViewController *_navi = [[RCDNavigationViewController alloc] initWithRootViewController:loginVC];
         self.window.rootViewController = _navi;
 

@@ -18,9 +18,11 @@
 #define ProDemoServer @"http://119.254.110.79:8080/"     // Beijing Liu-Bei 线上环境（北京）
 #define PrivateCloudDemoServer @"http://139.217.26.223/" //私有云测试
 
-#define DemoServer @"http://api.sealtalk.im/" //线上正式环境
+//#define DemoServer @"http://api.sealtalk.im/" //线上正式环境
 //#define DemoServer @"http://apiqa.rongcloud.net/" //线上非正式环境
 //#define DemoServer @"http://api.hitalk.im/" //测试环境
+
+#define DemoServer @"http://192.168.1.4:8585" //线上正式环境
 
 //#define ContentType @"text/plain"
 #define ContentType @"application/json"
