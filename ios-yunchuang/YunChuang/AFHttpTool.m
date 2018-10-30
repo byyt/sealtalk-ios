@@ -22,7 +22,7 @@
 //#define DemoServer @"http://apiqa.rongcloud.net/" //线上非正式环境
 //#define DemoServer @"http://api.hitalk.im/" //测试环境
 
-#define DemoServer @"http://192.168.1.4:8585" //线上正式环境
+#define DemoServer @"http://192.168.1.2:8585" //线上正式环境
 
 //#define ContentType @"text/plain"
 #define ContentType @"application/json"
@@ -94,7 +94,7 @@
             parameters:params
             success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObj) {
                 if (success) {
-                    if ([url isEqualToString:@"user/login"]) {
+                    if ([url isEqualToString:@"user/login"] || [url isEqualToString:@"user/code_login"]) { //自己加，密码登录或者验证码登录都需要设置cookie，才能请求后台的get_token接口，否则失效
                         NSString *cookieString = [[operation.response allHeaderFields] valueForKey:@"Set-Cookie"];
                         NSMutableString *finalCookie = [NSMutableString new];
                         //                      NSData *data = [NSKeyedArchiver
@@ -189,6 +189,37 @@
 
     [AFHttpTool requestWihtMethod:RequestMethodTypePost
                               url:@"user/login"
+                           params:params
+                          success:success
+                          failure:failure];
+}
+
+//新加的
+//验证码登录
++ (void)codeLoginWithRegion:(NSString *)region
+                phoneNumber:(NSString *)phoneNumber
+           verficationToken:(NSString *)verficationToken
+                    success:(void (^)(id response))success
+                    failure:(void (^)(NSError *err))failure{
+    NSDictionary *params = @{@"region" : region, @"phone" : phoneNumber, @"verification_token" : verficationToken};
+    
+    [AFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:@"user/code_login"
+                           params:params
+                          success:success
+                          failure:failure];
+}
+
+//验证码注册
++ (void)codeRegisterWithNickName:(NSString *)nickname
+                        password:(NSString *)password
+                verficationToken:(NSString *)verficationToken
+                         success:(void (^)(id response))success
+                         failure:(void (^)(NSError *err))failure{
+    NSDictionary *params = @{@"nickname" : nickname, @"password" : password, @"verification_token" : verficationToken};
+    
+    [AFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:@"user/register_code"
                            params:params
                           success:success
                           failure:failure];

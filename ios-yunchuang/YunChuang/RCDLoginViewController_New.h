@@ -10,6 +10,4 @@
 #import <UIKit/UIKit.h>
 @interface RCDLoginViewController_New : UIViewController <RCAnimatedImagesViewDelegate>
 
-//-(void) defaultLogin;
-- (void)login:(NSString *)userName password:(NSString *)password;
 @end

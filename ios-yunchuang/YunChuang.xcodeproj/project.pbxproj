@@ -82,6 +82,8 @@
 		46E17CCA1B0EC32A001AC57A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E17CC31B0EC32A001AC57A /* FMDatabaseQueue.m */; };
 		46E17CCC1B0EC32A001AC57A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E17CC61B0EC32A001AC57A /* FMResultSet.m */; };
 		4C76C8852170DEB600701524 /* RCDLoginViewController_New.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76C8842170DEB600701524 /* RCDLoginViewController_New.m */; };
+		4C76C8882174F55F00701524 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76C8872174F55F00701524 /* ToastUtil.m */; };
+		4C76C88D217E195A00701524 /* RCDRegisterViewController_New.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C76C88C217E195A00701524 /* RCDRegisterViewController_New.m */; };
 		510624851AD63A9E00348452 /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = 510624831AD63A9E00348452 /* RongCloudKit.strings */; };
 		5111B07B1AE6A11A00317E71 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5111B0781AE6A11A00317E71 /* RongIMKit.framework */; };
 		5111B07D1AE6A11A00317E71 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5111B07A1AE6A11A00317E71 /* RongCloud.bundle */; };
@@ -496,6 +498,10 @@
 		46E17CCD1B0EDF49001AC57A /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = DB/FMDB.h; sourceTree = "<group>"; };
 		4C76C8832170DEB500701524 /* RCDLoginViewController_New.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCDLoginViewController_New.h; path = YunChuang/RCDLoginViewController_New.h; sourceTree = SOURCE_ROOT; };
 		4C76C8842170DEB600701524 /* RCDLoginViewController_New.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDLoginViewController_New.m; path = YunChuang/RCDLoginViewController_New.m; sourceTree = SOURCE_ROOT; };
+		4C76C8862174F51F00701524 /* ToastUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = SOURCE_ROOT; };
+		4C76C8872174F55F00701524 /* ToastUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = SOURCE_ROOT; };
+		4C76C889217E138400701524 /* RCDRegisterViewController_New.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDRegisterViewController_New.h; sourceTree = SOURCE_ROOT; };
+		4C76C88C217E195A00701524 /* RCDRegisterViewController_New.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDRegisterViewController_New.m; sourceTree = SOURCE_ROOT; };
 		510624841AD63A9E00348452 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = framework/en.lproj/RongCloudKit.strings; sourceTree = SOURCE_ROOT; };
 		510624861AD63AA500348452 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "framework/zh-Hans.lproj/RongCloudKit.strings"; sourceTree = SOURCE_ROOT; };
 		5111B0781AE6A11A00317E71 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMKit.framework; path = framework/RongIMKit.framework; sourceTree = SOURCE_ROOT; };
@@ -1768,6 +1774,8 @@
 				98A3E7091D45F961007989E7 /* RCDNavigationViewController.m */,
 				98D3C9CF1D4C464D006FDF67 /* RCDMainTabBarViewController.h */,
 				98D3C9D01D4C464D006FDF67 /* RCDMainTabBarViewController.m */,
+				4C76C8862174F51F00701524 /* ToastUtil.h */,
+				4C76C8872174F55F00701524 /* ToastUtil.m */,
 				E4FF90B91AC980E900542DC9 /* SettingViewController */,
 				46A831B81AC014B2001A533F /* FindPsw */,
 				E4C4E7CC1A09FC2800140067 /* Login */,
@@ -1807,6 +1815,8 @@
 			children = (
 				E4E939A41AD65CA3001E0AC6 /* RCDRegisterViewController.h */,
 				E4E939A51AD65CA3001E0AC6 /* RCDRegisterViewController.m */,
+				4C76C889217E138400701524 /* RCDRegisterViewController_New.h */,
+				4C76C88C217E195A00701524 /* RCDRegisterViewController_New.m */,
 			);
 			name = Register;
 			sourceTree = "<group>";
@@ -2616,6 +2626,7 @@
 				E4E939B81AD65CFD001E0AC6 /* RCDGroupTableViewCell.m in Sources */,
 				466684361B5DF36E000B7504 /* RCDUtilities.m in Sources */,
 				E4E939441AD65A95001E0AC6 /* AFHTTPSessionManager.m in Sources */,
+				4C76C8882174F55F00701524 /* ToastUtil.m in Sources */,
 				17D7D1FB1D535272000AEC54 /* DefaultPortraitView.m in Sources */,
 				E4E939A01AD65C74001E0AC6 /* RCDDiscussGroupSettingViewController.m in Sources */,
 				9899D8331DBDAA1C00AD60F8 /* RCDTabBarBtn.m in Sources */,
@@ -2687,6 +2698,7 @@
 				983B73A220A598180059B047 /* ioapi_buf.c in Sources */,
 				1763AB171F57E63D00BC96D9 /* RCDCSAnnounceView.m in Sources */,
 				E4E939521AD65A95001E0AC6 /* UIWebView+AFNetworking.m in Sources */,
+				4C76C88D217E195A00701524 /* RCDRegisterViewController_New.m in Sources */,
 				E4E939641AD65A95001E0AC6 /* NSData+ImageContentType.m in Sources */,
 				E4E9394C1AD65A95001E0AC6 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				E4E939811AD65B27001E0AC6 /* RCDDiscussSettingCell.m in Sources */,

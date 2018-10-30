@@ -54,6 +54,21 @@ typedef NS_ENUM(NSInteger, RequestMethodType) { RequestMethodTypePost = 1, Reque
                        success:(void (^)(id response))success
                        failure:(void (^)(NSError *err))failure;
 
+//新加的
+//验证码登录
++ (void)codeLoginWithRegion:(NSString *)region
+                phoneNumber:(NSString *)phoneNumber
+           verficationToken:(NSString *)verficationToken
+                    success:(void (^)(id response))success
+                    failure:(void (^)(NSError *err))failure;
+
+//验证码注册
++ (void)codeRegisterWithNickName:(NSString *)nickname
+                        password:(NSString *)password
+                verficationToken:(NSString *)verficationToken
+                         success:(void (^)(id response))success
+                         failure:(void (^)(NSError *err))failure;
+
 // reg nickname password verficationToken
 + (void)registerWithNickname:(NSString *)nickname
                     password:(NSString *)password
