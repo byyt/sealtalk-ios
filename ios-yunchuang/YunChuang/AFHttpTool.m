@@ -22,7 +22,7 @@
 //#define DemoServer @"http://apiqa.rongcloud.net/" //线上非正式环境
 //#define DemoServer @"http://api.hitalk.im/" //测试环境
 
-#define DemoServer @"http://192.168.1.2:8585" //线上正式环境
+#define DemoServer @"http://192.168.0.104:8585" //线上正式环境
 
 //#define ContentType @"text/plain"
 #define ContentType @"application/json"

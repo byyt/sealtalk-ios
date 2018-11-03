@@ -76,10 +76,12 @@
 @property(strong, nonatomic) IBOutlet UIButton *getCodeButton;
 @property(nonatomic, strong) UIView *codeLine;
 @property(nonatomic, strong) IBOutlet UIButton *loginButton;
-//切换验证码或密码登录方式、忘记密码一行
+//切换验证码或密码登录方式、忘记密码一行，需要动态更新约束，切换时显示或去掉获取验证码按钮所占的位置
 @property(nonatomic, strong) UIView *switchBg;
 @property(strong, nonatomic) IBOutlet UIButton *switchLoginButton;
 @property(strong, nonatomic) IBOutlet UIButton *forgetPasswordButton;
+@property(nonatomic, strong) NSArray *codeTextField_getCodeButton_H;
+@property(nonatomic, strong) NSArray *codeTextField_countDownLable_H;
 
 //保存手机号、验证码或密码的值
 @property(nonatomic, strong) NSString *phoneString;
@@ -957,14 +959,14 @@ MBProgressHUD *hud;
     NSArray *getCodeButton_V= [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_getCodeButton]|" options:0 metrics:nil views:views];
     NSArray *countDownLable_V= [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_countDownLable]|" options:0 metrics:nil views:views];
     //下面是getCodeButton和countDownLable位置重叠
-    NSArray *codeTextField_getCodeButton_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField]-10-[_getCodeButton(95)]|" options:0 metrics:nil views:views];
-    NSArray *codeTextField_countDownLable_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField]-10-[_countDownLable(95)]|" options:0 metrics:nil views:views];
+    _codeTextField_getCodeButton_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField]-10-[_getCodeButton(95)]|" options:0 metrics:nil views:views];
+    _codeTextField_countDownLable_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField]-10-[_countDownLable(95)]|" options:0 metrics:nil views:views];
     
     [_codeBg addConstraints:codeTextField_V];
     [_codeBg addConstraints:getCodeButton_V];
     [_codeBg addConstraints:countDownLable_V];
-    [_codeBg addConstraints:codeTextField_getCodeButton_H];
-    [_codeBg addConstraints:codeTextField_countDownLable_H];
+    [_codeBg addConstraints:_codeTextField_getCodeButton_H];
+    [_codeBg addConstraints:_codeTextField_countDownLable_H];
 }
 
 //验证码或密码下方横线
@@ -1324,7 +1326,7 @@ MBProgressHUD *hud;
 }
 
 //切换验证码登录、密码登录方式
-- (IBAction)switchCodeOrPassword:(id)sender {
+- (void)switchCodeOrPassword:(id)sender {
     _isCodeLogin = !_isCodeLogin;
     [self setCodeOrPasswordStatus];
 }
@@ -1333,19 +1335,46 @@ MBProgressHUD *hud;
 - (void)setCodeOrPasswordStatus {
     if (_isCodeLogin) {
         [_switchLoginButton setTitle:@"密码登录" forState:UIControlStateNormal];
-        _getCodeButton.hidden = NO;
+//        _getCodeButton.hidden = NO;
+        [self setGetCodeButtonHidden:NO];
         _codeTextField.text = @"";
         _codeTextField.placeholder = @"输入验证码";
         _codeTextField.keyboardType = UIKeyboardTypeNumberPad;
         _forgetPasswordButton.hidden = YES;
+        //隐藏掉
     } else {
         [_switchLoginButton setTitle:@"验证码登录" forState:UIControlStateNormal];
-        _getCodeButton.hidden = YES;
+//        _getCodeButton.hidden = YES;
+        [self setGetCodeButtonHidden:YES];
         _codeTextField.text = @"";
         _codeTextField.placeholder = @"输入密码";
         _codeTextField.keyboardType = UIKeyboardTypeDefault;
         _forgetPasswordButton.hidden = NO;
     }
+}
+
+- (void)setGetCodeButtonHidden:(BOOL)hidden {
+    _getCodeButton.hidden = hidden;
+    //隐藏或显示的同时也要修改约束
+    //下面是getCodeButton和countDownLable位置重叠
+    NSDictionary *views =
+    NSDictionaryOfVariableBindings(_codeTextField, _getCodeButton, _countDownLable);
+    if(hidden){
+        _codeTextField_getCodeButton_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField][_getCodeButton(0)]|" options:0 metrics:nil views:views];
+        _codeTextField_countDownLable_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField][_countDownLable(0)]|" options:0 metrics:nil views:views];
+    }else{
+        _codeTextField_getCodeButton_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField]-10-[_getCodeButton(95)]|" options:0 metrics:nil views:views];
+        _codeTextField_countDownLable_H= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeTextField]-10-[_countDownLable(95)]|" options:0 metrics:nil views:views];
+    }
+    //下面是调用立即刷新约束的函数
+    [_codeBg addConstraints:_codeTextField_getCodeButton_H];
+    [_codeBg addConstraints:_codeTextField_countDownLable_H];
+    [_codeBg setNeedsUpdateConstraints];
+    [_codeBg updateConstraintsIfNeeded];
+    [_codeBg layoutIfNeeded];
+    [self.view setNeedsUpdateConstraints];
+    [self.view updateConstraintsIfNeeded];
+    [self.view layoutIfNeeded];
 }
 
 - (void)setLoginButtonEnable:(BOOL)enable {
@@ -1354,7 +1383,7 @@ MBProgressHUD *hud;
         [_loginButton setBackgroundColor:[UIColor colorWithHexString:@"EFF059" alpha:1.0]];
     }else{
         _loginButton.enabled = YES;
-        [_loginButton setBackgroundColor:[UIColor colorWithHexString:@"EEEEE6" alpha:1.80]];
+        [_loginButton setBackgroundColor:[UIColor colorWithHexString:@"EEEEE6" alpha:1.0]];
     }
 }
 
